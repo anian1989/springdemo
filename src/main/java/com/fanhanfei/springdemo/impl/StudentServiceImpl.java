@@ -3,6 +3,7 @@ package com.fanhanfei.springdemo.impl;
 import com.fanhanfei.springdemo.service.StudentService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.openjdk.jmh.annotations.Benchmark;
 
 /**
  * @author zhangjunshuai
@@ -14,6 +15,8 @@ import lombok.extern.slf4j.Slf4j;
 public class StudentServiceImpl implements StudentService {
     private String config;
     private Integer age;
+
+
 
     @Override
     public void testBeanFactoryPostProcessor() {
