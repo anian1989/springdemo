@@ -32,6 +32,19 @@ public class StreamTest {
         log.info("结果:"+sum);
 
     }
+
+    @Test
+    public void testList(){
+        ArrayList<String> strings = Lists.newArrayList("kkk", "undefined", "TTT");
+        log.info("测试：{}",JSON.toJSONString(strings));
+        strings.removeIf(s-> s.equals("undefined"));
+        log.info("测试：{}",JSON.toJSONString(strings));
+    }
+
+    @Test
+    public void test(){
+        String t1="";
+    }
 }
 @Data
 class Student{

@@ -10,5 +10,9 @@
     </bean>
     <bean class="com.fanhanfei.springdemo.springbeans.BeanFactoryPostProcessor1"/>
     <bean class="com.fanhanfei.springdemo.springbeans.BeanFactoryPostProcessor2"/>
+    <bean id="beanPostProcessorService" class="com.fanhanfei.springdemo.impl.BeanPostProcessorImpl">
+
+    </bean>
+
 
 </beans>
