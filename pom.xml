@@ -143,6 +143,30 @@
             <version>${jmh.version}</version>
             <scope>provided</scope>
         </dependency>
+        <!--注解使用 start-->
+        <!-- https://mvnrepository.com/artifact/com.google.auto.service/auto-service -->
+        <dependency>
+            <groupId>com.google.auto.service</groupId>
+            <artifactId>auto-service</artifactId>
+            <version>1.0-rc1</version>
+        </dependency>
+        <!-- Java Poet to generate java files -->
+        <dependency>
+            <groupId>com.squareup</groupId>
+            <artifactId>javapoet</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <!--注解使用 end -->
+
+        <!-- Apache Commons StringUtils -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
@@ -151,6 +175,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
         </plugins>
     </build>
 

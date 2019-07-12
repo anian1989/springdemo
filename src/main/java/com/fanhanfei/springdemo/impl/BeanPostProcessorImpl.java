@@ -1,6 +1,7 @@
 package com.fanhanfei.springdemo.impl;
 
 import com.fanhanfei.springdemo.service.RountingInjected;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +22,19 @@ BeanPostProcessor 可以理解为是 Spring 的一个工厂钩子（其实 Sprin
 比较常见的使用场景是处理标记接口实现类或者为当前对象提供代理实现（例如AOP）。
  **/
 @Component
+@Slf4j
 public class BeanPostProcessorImpl implements BeanPostProcessor {
     @Autowired
     private ApplicationContext applicationContext;
 
     public BeanPostProcessorImpl() {
         super();
-        System.out.println("这是BeanPostProcessor实现类构造器！！");
+        log.info("这是BeanPostProcessor实现类构造器！！");
     }
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("Bean [" + beanName + "] 开始BeanPostProcessor初始化");
+        log.info("Bean [" + beanName + "] 开始BeanPostProcessor初始化");
         Class<?> targetCls = bean.getClass();
         Field[] targetFld = targetCls.getDeclaredFields();
         for (Field field : targetFld) {
@@ -71,10 +73,10 @@ public class BeanPostProcessorImpl implements BeanPostProcessor {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("Bean [" + beanName + "] 完成BeanPostProcessor初始化");
+        log.info("Bean [" + beanName + "] 完成BeanPostProcessor初始化");
         return bean;
     }
     public void display(){
-        System.out.println("hello BeanPostProcessor!!!");
+        log.info("hello BeanPostProcessor!!!");
     }
 }
