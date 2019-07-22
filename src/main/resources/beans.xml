@@ -4,12 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="studentService" class="com.fanhanfei.springdemo.impl.StudentServiceImpl">
+    <!--<bean id="studentService" class="com.fanhanfei.springdemo.impl.StudentServiceImpl">
         <property name="config" value="chenssy"/>
         <property name="age" value="10"/>
-    </bean>
+    </bean>-->
     <bean class="com.fanhanfei.springdemo.springbeans.BeanFactoryPostProcessor1"/>
     <bean class="com.fanhanfei.springdemo.springbeans.BeanFactoryPostProcessor2"/>
+    <!--<bean class="com.fanhanfei.springdemo.springbeans.InstantiationAwareBeanPostProcessorAdapterImpl"/>-->
     <bean id="beanPostProcessorService" class="com.fanhanfei.springdemo.impl.BeanPostProcessorImpl">
 
     </bean>

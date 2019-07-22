@@ -20,6 +20,7 @@ import java.util.Set;
  * @author zhangjunshuai
  * @date 2019/7/10
  * @description  https://www.jianshu.com/p/0aaa68263892
+ * 对于编译期的注解用Processor
  * AutoService注解处理器是Google开发的，用来生成META-INF/services/javax.annotation.processing.Processor文件的
  * Elements：一个用来处理Element的工具类；
  * Types：一个用来处理TypeMirror的工具类；

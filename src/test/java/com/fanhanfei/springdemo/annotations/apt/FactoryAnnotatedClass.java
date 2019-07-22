@@ -8,7 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * @author zhangjunshuai
  * @date 2019/7/10
- * @description  https://www.jianshu.com/p/0aaa68263892
+ * @description
+ * https://www.jianshu.com/p/0aaa68263892
+ * https://www.jianshu.com/p/c2298bc50bab
  **/
 public class FactoryAnnotatedClass {
 

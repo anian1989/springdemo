@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  **/
 @Data
 @Slf4j
-@Service
+@Service("studentService")
 public class StudentServiceImpl implements StudentService {
     private String config;
     private Integer age;
