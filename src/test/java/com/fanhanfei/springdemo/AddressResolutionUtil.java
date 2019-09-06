@@ -66,7 +66,7 @@ public class AddressResolutionUtil {
 
         Integer te = 2;
         if (te.equals(null)) {
-            System.out.println(111111);
+            System.out.println(1111111);
         }else {
             System.out.println(22222);
         }
