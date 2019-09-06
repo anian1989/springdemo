@@ -1,5 +1,7 @@
 package com.fanhanfei.springdemo;
 
+import com.google.common.hash.Hashing;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -52,6 +54,23 @@ public class AddressResolutionUtil {
         System.out.println(addressResolution("内蒙古自治区兴安盟科尔沁右翼前旗"));
         System.out.println(addressResolution("西藏自治区日喀则地区日喀则市"));
         System.out.println(addressResolution("海南省省直辖县级行政单位中沙群岛的岛礁及其海域"));
+
+
+
+        // 计算MD5
+        // 计算MD5
+        String input = "河北省唐山市开发区";
+        System.out.println("MD5测试"+input+"："+Hashing.md5().hashBytes(input.getBytes()).toString());
+        String input1 = "新疆维吾尔自治区乌鲁木齐市东山区";
+        System.out.println("MD5测试"+input1+"："+Hashing.md5().hashBytes(input1.getBytes()).toString());
+
+        Integer te = 2;
+        if (te.equals(null)) {
+            System.out.println(111111);
+        }else {
+            System.out.println(22222);
+        }
+
 
     }
 

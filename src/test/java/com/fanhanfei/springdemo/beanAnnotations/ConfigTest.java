@@ -1,5 +1,6 @@
 package com.fanhanfei.springdemo.beanAnnotations;
 
+import com.google.common.hash.Hashing;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,5 +26,8 @@ public class ConfigTest {
     public void testBean(){
         annotationBeanService.printMessage();
         annotationBeanServiceComponent.printMessage();
+
+
+
     }
 }
