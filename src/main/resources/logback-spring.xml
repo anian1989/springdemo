@@ -1,122 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true" scanPeriod="60 seconds">
-    <!-- 都说spring boot使用日志需要引入这个，但是我引入了之后总是打印两份日志，所以我去除了，并不影响使用 -->
-    <!-- <include resource="org/springframework/boot/logging/logback/base.xml"/> -->
-    <!-- 控制台设置 -->
+<configuration debug="false">
+    <property resource="bootstrap.properties"/>
+    <!-- set the logging path -->
+    <property name="LOG_HOME" value="${log.home}"/>
+
+    <!-- set the logging archive path -->
+    <property name="LOG_ARCHIVE" value="${LOG_HOME}/archive"/>
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出,%d:日期;%thread:线程名;%-5level：级别,从左显示5个字符宽度;%msg:日志消息;%n:换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} [%file:%line] - %msg%n</pattern>
         </encoder>
-    </appender>
-    <!-- INFO -->
-    <appender name="infoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 文件路径 ，注意LOG_PATH是默认值，
-            它的配置对应application.properties里的logging.path值-->
-        <file>${LOG_PATH}/info/info.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 文件名称 -->
-            <fileNamePattern>info/info-%d{yyyy-MM-dd}.log
-            </fileNamePattern>
-            <!-- 文件最大保存历史数量 -->
-            <MaxHistory>30</MaxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>INFO</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${log.console.level}</level>
         </filter>
     </appender>
 
-    <!-- DEBUG -->
-    <appender name="debugAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 文件路径 ，注意LOG_PATH是默认值，
-            它的配置对应application.properties里的logging.path值-->
-        <file>${LOG_PATH}/debug/debug.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 文件名称 -->
-            <fileNamePattern>debug/debug-%d{yyyy-MM-dd}.log</fileNamePattern>
-            <!-- 文件最大保存历史数量 -->
-            <MaxHistory>30</MaxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>DEBUG</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
-    <!-- WARN -->
-    <appender name="warnAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 文件路径 ，注意LOG_PATH是默认值，
-            它的配置对应application.properties里的logging.path值-->
-        <file>${LOG_PATH}/warn/warn.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 文件名称 -->
-            <fileNamePattern>warn/warn-%d{yyyy-MM-dd}.log
+
+    <appender name="ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/all.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${LOG_ARCHIVE}/all.log.%i-%d{yyyy-MM-dd}
             </fileNamePattern>
-            <!-- 文件最大保存历史数量 -->
-            <MaxHistory>30</MaxHistory>
+            <maxHistory>30</maxHistory>
+            <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <pattern>%date %level %logger{10} [%file:%line] %msg%n</pattern>
         </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+    </appender>
+
+
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>WARN</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
         </filter>
-    </appender>
-
-    <!-- ERROR -->
-    <appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 文件路径 ，注意LOG_PATH是默认值，
-            它的配置对应application.properties里的logging.path值-->
-        <file>${LOG_PATH}/error/error.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 文件名称 -->
-            <fileNamePattern>error/error-%d{yyyy-MM-dd}.log
+        <file>${LOG_HOME}/error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${LOG_ARCHIVE}/error.log.%i-%d{yyyy-MM-dd}
             </fileNamePattern>
-            <!-- 文件最大保存历史数量 -->
-            <MaxHistory>30</MaxHistory>
+            <maxHistory>30</maxHistory>
+            <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %logger{10} [%file:%line] %msg%n</pattern>
         </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>ERROR</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
     </appender>
-    <logger name="org.springframework" additivity="false">
-        <level value="ERROR" />
-        <appender-ref ref="STDOUT" />
-        <appender-ref ref="errorAppender" />
+
+    <appender name="wmsContentAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/wms_content.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${LOG_ARCHIVE}/wms_content_log/content.log.%i-%d{yyyy-MM-dd}
+            </fileNamePattern>
+            <maxHistory>92</maxHistory>
+            <maxFileSize>100MB</maxFileSize>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss} %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="wmsContent" level="INFO" additivity="false">
+        <appender-ref ref="wmsContentAppender"/>
     </logger>
 
-    <!-- 由于启动的时候，以下两个包下打印debug级别日志很多 ，所以调到ERROR-->
-    <logger name="org.apache.tomcat.util" additivity="false">
-        <level value="ERROR"/>
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="errorAppender"/>
-    </logger>
 
-    <!-- 默认spring boot导入hibernate很多的依赖包，启动的时候，会有hibernate相关的内容，直接去除 -->
-    <logger name="org.hibernate.validator" additivity="false">
-        <level value="ERROR"/>
+    <root level="${log.level}">
         <appender-ref ref="STDOUT"/>
-        <appender-ref ref="errorAppender"/>
-    </logger>
-    <root level="DEBUG">
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="infoAppender"/>
-        <appender-ref ref="debugAppender"/>
-        <appender-ref ref="warnAppender"/>
-        <appender-ref ref="errorAppender"/>
+        <appender-ref ref="ALL"/>
+        <appender-ref ref="ERROR"/>
     </root>
+
 </configuration>

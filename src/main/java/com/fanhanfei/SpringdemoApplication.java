@@ -1,4 +1,4 @@
-package com.fanhanfei.springdemo;
+package com.fanhanfei;
 
 import com.fanhanfei.springdemo.event.contextrefreshedevent.AppApplicationListener;
 import com.fanhanfei.springdemo.event.contextrefreshedevent.userDefined.CustomEventPublisher;
@@ -15,7 +15,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 /**
  * @author zhangjunshuai
  */
-@SpringBootApplication(scanBasePackages = "com.fanhanfei.springdemo", exclude = {RedisAutoConfiguration.class,
+@SpringBootApplication(scanBasePackages = "com.fanhanfei", exclude = {RedisAutoConfiguration.class,
 		MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
 @ImportResource("classpath*:beans.xml")
 @EnableAsync

@@ -5,5 +5,9 @@ package com.fanhanfei.designmode;
  * @date 2019/9/9
  * @description
  **/
-public class HumanService {
+public interface HumanService {
+
+    void test();
+
+    void testAbstract();
 }
