@@ -6,6 +6,7 @@
     <modules>
         <module>dbrepository</module>
         <module>spring</module>
+        <module>thirdparty</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
