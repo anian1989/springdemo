@@ -120,12 +120,6 @@
             <version>3.2.5</version>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.8</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>3.13</version>
@@ -240,9 +234,6 @@
                     <skipTests>true</skipTests>
                     <!-- 1. set skipTests = false -->
                     <!-- 2. run mvn test -Dgroups=fast-->
-                    <properties>
-                        <includeTags>${tests}</includeTags>
-                    </properties>
                 </configuration>
             </plugin>
             <plugin>
@@ -262,12 +253,6 @@
                 <configuration>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
-            </plugin>
-            <!--run mvn keep:version-check-->
-            <plugin>
-                <groupId>com.keep.maven</groupId>
-                <artifactId>keep-maven-plugin</artifactId>
-                <version>0.1.2</version>
             </plugin>
         </plugins>
     </build>

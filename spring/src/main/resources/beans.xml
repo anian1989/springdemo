@@ -27,14 +27,14 @@
         </property>
     </bean>-->
 
-    <!--<bean id="studentService" class="com.fanhanfei.springdemo.impl.StudentServiceImpl">
+    <!--<bean id="studentService" class="StudentServiceImpl">
         <property name="config" value="chenssy"/>
         <property name="age" value="10"/>
     </bean>-->
-    <bean class="com.fanhanfei.springdemo.springbeans.BeanFactoryPostProcessor1"/>
-    <bean class="com.fanhanfei.springdemo.springbeans.BeanFactoryPostProcessor2"/>
-    <!--<bean class="com.fanhanfei.springdemo.springbeans.InstantiationAwareBeanPostProcessorAdapterImpl"/>-->
-    <bean id="beanPostProcessorService" class="com.fanhanfei.springdemo.impl.BeanPostProcessorImpl">
+    <bean class="com.fanhanfei.springstudy.springbeans.BeanFactoryPostProcessor1"/>
+    <bean class="com.fanhanfei.springstudy.springbeans.BeanFactoryPostProcessor2"/>
+    <!--<bean class="InstantiationAwareBeanPostProcessorAdapterImpl"/>-->
+    <bean id="beanPostProcessorService" class="com.fanhanfei.springstudy.impl.BeanPostProcessorImpl">
 
     </bean>
 
