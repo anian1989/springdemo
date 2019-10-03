@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Thread)
 @Slf4j
 public class BenchmarkMy {
-    @Param({"4","5","6"})
+    /*@Param({"4","5","6"})
     private int length;
 
     public static void main(String[] args) throws RunnerException {
@@ -54,6 +54,6 @@ public class BenchmarkMy {
     @TearDown
     public void setDown() {
         log.info("测试结束");
-    }
+    }*/
 
 }

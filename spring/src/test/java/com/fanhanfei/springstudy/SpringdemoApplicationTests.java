@@ -39,7 +39,7 @@ public class SpringdemoApplicationTests {
 //		BeanPostProcessorImpl beanPostProcessorService = (BeanPostProcessorImpl) factory.getBean("beanPostProcessorService");
 //		factory.addBeanPostProcessor(beanPostProcessorService);
 //		beanPostProcessorService.display();
-		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.fanhanfei.springdemo");
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.fanhanfei.springstudy");
 		StudentService helloServiceTest = applicationContext.getBean(StudentService.class);
 		helloServiceTest.testBeanFactoryPostProcessor();
 	}

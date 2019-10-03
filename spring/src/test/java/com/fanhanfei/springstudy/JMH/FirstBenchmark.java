@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Thread)
 public class FirstBenchmark {
 
-    @Benchmark
+    /*@Benchmark
     public int sleepAWhile() {
         try {
             Thread.sleep(500);
@@ -37,5 +37,5 @@ public class FirstBenchmark {
                 .build();
 
         new Runner(opt).run();
-    }
+    }*/
 }

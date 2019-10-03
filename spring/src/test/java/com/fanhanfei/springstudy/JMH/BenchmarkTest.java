@@ -1,6 +1,5 @@
 package com.fanhanfei.springstudy.JMH;
 
-import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
@@ -41,11 +40,11 @@ import java.util.stream.IntStream;
  */
 
 @State(Scope.Benchmark)
-//@Slf4j
-public class BenchmarkTest {
-    /***
+@Slf4j
+public class BenchmarkTest {/*
+    *//***
      * JMH使用所有@Param字段的输出结果。因此，如果第一个字段有2个参数，第二个字段有5个参数，测试将运行2 * 5 * Forks次。
-     */
+     *//*
     @Param({"10000","1000"})
     private int length;
 
@@ -77,14 +76,14 @@ public class BenchmarkTest {
         return multiThreadCalc.sum(numbers);
     }
 
-    /**
+    *//**
      * @Setup/@TearDown 注解使用Level参数来指定何时调用fixture：
      *
      * 名称               描述
      * Level.Trial	    默认level。全部benchmark运行(一组迭代)之前/之后
      * Level.Iteration	一次迭代之前/之后(一组调用)
      * Level.Invocation	每个方法调用之前/之后(不推荐使用，除非你清楚这样做的目的)
-     */
+     *//*
     @Setup
     public void prepare() {
         System.out.println("测试开始");
@@ -98,5 +97,5 @@ public class BenchmarkTest {
         System.out.println("测试结束");
         singleThreadCalc.shutdown();
         multiThreadCalc.shutdown();
-    }
+    }*/
 }
