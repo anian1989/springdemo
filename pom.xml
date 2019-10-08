@@ -260,5 +260,43 @@
             </plugin>
         </plugins>
     </build>
+    <!--
+    不同环境变量的配置
+    https://lotabout.me/2018/Maven-Profile-and-Spring-Profile/
+    https://www.cnblogs.com/0201zcr/p/6262762.html
+    https://www.jianshu.com/p/6e0ed7b341e6
+    -->
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <env>local</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>dev</env>
+                <profile.active>dev</profile.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <env>test</env>
+                <profile.active>test</profile.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>online</id>
+            <properties>
+                <env>online</env>
+                <profile.active>online</profile.active>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

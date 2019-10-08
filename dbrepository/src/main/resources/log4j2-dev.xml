@@ -118,7 +118,9 @@
          在配置文件中Logger使用<asyncRoot> or <asyncLogger>
              -->
         <Asyncroot level="INFO" includeLocation="true">
-            <appender-ref ref="Console"/>
+            <springProfile name="dev1">
+                <appender-ref ref="Console"/>
+            </springProfile>
             <appender-ref ref="RollingFileError"/>
             <appender-ref ref="RollingFileInfo"/>
         </Asyncroot>
