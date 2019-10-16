@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -34,11 +37,16 @@ public class MybatisDBFirstConfig {
         return factoryBean.getObject();
 
     }
-
     @Bean
     public SqlSessionTemplate sqlSessionTemplate1() throws Exception {
         // 使用上面配置的Factory
         SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory1());
         return template;
+    }
+    @Bean(name = "dataSourceTransactionManagerFirst")
+    public PlatformTransactionManager dataSourceTransactionManager(){
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
+        dataSourceTransactionManager.setDataSource(ds1);
+        return dataSourceTransactionManager;
     }
 }
