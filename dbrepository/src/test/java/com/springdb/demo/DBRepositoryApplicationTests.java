@@ -24,13 +24,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 //https://blinkfox.github.io/2019/03/02/hou-duan/spring/springboot2.x-dan-yuan-ce-shi/
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 //@ActiveProfiles("hsqldb")
 //@RunWith(MockitoJUnitRunner.class) Service层测试
 //@WebMvcTest(BlogController.class) Controller层测试
 @Slf4j
-public class DBRepositoryApplicationTests {
+public class DBRepositoryApplicationTests extends BaseTest{
 
 	@Resource
 	private SkuChannelSnapshotCompareMapper skuChannelSnapshotCompareMapper;

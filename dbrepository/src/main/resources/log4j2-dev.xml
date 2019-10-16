@@ -117,10 +117,13 @@
         b.异步和非异步混合输出模式
          在配置文件中Logger使用<asyncRoot> or <asyncLogger>
              -->
-        <Asyncroot level="INFO" includeLocation="true">
-            <springProfile name="dev1">
+        <Asyncroot level="DEBUG" includeLocation="true">
+            <!--TODO 没有起作用
+            <springProfile name="dev">
                 <appender-ref ref="Console"/>
             </springProfile>
+            -->
+            <appender-ref ref="Console"/>
             <appender-ref ref="RollingFileError"/>
             <appender-ref ref="RollingFileInfo"/>
         </Asyncroot>

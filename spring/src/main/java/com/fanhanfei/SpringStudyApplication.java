@@ -20,7 +20,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @ImportResource("classpath*:beans.xml")
 @EnableAsync
 public class SpringStudyApplication {
-
+	/**
+	 * 项目启动配置 --debug 会输出自动配置项
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run =
 				SpringApplication.run(SpringStudyApplication.class, args);

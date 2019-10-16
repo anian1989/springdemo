@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 public class MainCompile {
 
 
-    private static String filePath = "/Users/zhangjunshuai/workspace/paopao/springdemo/src/test/java/com/fanhanfei/springdemo/compile/HelloCompile.java";
-    private static String binDir = "/Users/zhangjunshuai/workspace/paopao/springdemo/src/test/java/";
+    private static String filePath = "/Users/zhangjunshuai/workspace/paopao/springdemo/spring/src/test/java/com/fanhanfei/springstudy/compile/HelloCompile.java";
+    private static String binDir = "/Users/zhangjunshuai/workspace/paopao/springdemo/spring/src/test/java/";
 
     public static void main(String[] args) {
         File binOutDir = new File(binDir);

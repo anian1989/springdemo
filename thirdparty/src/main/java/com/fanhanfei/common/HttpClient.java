@@ -1,8 +1,5 @@
 package com.fanhanfei.common;
 
-import com.alibaba.fastjson.JSONObject;
-import com.google.common.base.Charsets;
-import com.google.common.collect.Lists;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
@@ -51,8 +48,8 @@ import java.util.Map;
 public class HttpClient {
 
     private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36";
-    static  String COOKIE_STR ;
-    static  String CONTENT_TYPE= "application/json";
+    static String COOKIE_STR;
+    static String CONTENT_TYPE = "application/json";
 
     // 超时设置
     private static final RequestConfig requestConfig = RequestConfig.custom()
@@ -84,7 +81,7 @@ public class HttpClient {
     public static String sendGet(String url) throws IOException {
         String result;
         HttpGet httpGet = new HttpGet(url);
-        httpGet.setHeader("Cookie",COOKIE_STR);
+        httpGet.setHeader("Cookie", COOKIE_STR);
 
         try (CloseableHttpClient httpclient = getBuilder().build();
              CloseableHttpResponse response = httpclient.execute(httpGet)) {
@@ -110,24 +107,21 @@ public class HttpClient {
 
         HttpPost httpPost = new HttpPost(url);
         httpPost.setEntity(stringEntity);
-        httpPost.setHeader("Cookie",COOKIE_STR);
+        httpPost.setHeader("Cookie", COOKIE_STR);
 
 
-        try  {
+        try {
             CloseableHttpClient httpclient = getBuilder().build();
             CloseableHttpResponse httpResponse = httpclient.execute(httpPost);
             HttpEntity httpEntity = httpResponse.getEntity();
             result = EntityUtils.toString(httpEntity);
             return result;
-        }catch (Exception e){
-            log.error("异常",e);
+        } catch (Exception e) {
+            log.error("异常", e);
         }
         return null;
 
     }
-
-
-
 
 
     /**
@@ -173,8 +167,8 @@ public class HttpClient {
     }
 
     /**
-     *  MultipartFile里面的name就是表单的name，文件名是originalFilename
-     *  */
+     * MultipartFile里面的name就是表单的name，文件名是originalFilename
+     */
     private static MultipartFile fileToMultipartFile(File file, String name) throws IOException {
         log.info("File转MultipartFile：文件路径：{}", file.getAbsolutePath());
         FileInputStream inputStream = new FileInputStream(file);
