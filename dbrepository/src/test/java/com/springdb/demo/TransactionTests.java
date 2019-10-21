@@ -1,7 +1,6 @@
 package com.springdb.demo;
 
-import com.springdb.demo.mapper2.WarehouseAreaLimitBakMapper;
-import com.springdb.demo.model.WarehouseAreaLimitBak;
+import com.springdb.demo.dbservice.SkuChannelSnapshotCompareDao;
 import com.springdb.demo.springtransaction.TransactionService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -23,5 +22,15 @@ public class TransactionTests extends BaseTest {
         System.out.println(transactionService.getClass());
         transactionService.onServiceMethod();
 
+    }
+    @Resource
+    private SkuChannelSnapshotCompareDao skuChannelSnapshotCompareDao;
+    @Test
+    public void testDynamic(){
+        Long id = 24L;
+        String ds = skuChannelSnapshotCompareDao.ds(id);
+        String s = skuChannelSnapshotCompareDao.dsRead(id);
+        log.info("写库："+ds);
+        log.info("读库："+s);
     }
 }

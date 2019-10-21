@@ -31,10 +31,10 @@ public interface SkuChannelSnapshotCompareMapper {
             , @Param("dataDateEnd") String dataDateEnd
     );
 
-    /*@Select("select * from user where id=#{id}")
-    User getById(Long id);
+    @Select("select * from stock_snapshot_compare limit 0,10")
+    List<SkuChannelSnapshotCompare> getById(@Param("id") Long id);
 
-    @Insert({"insert into user(name,age,pwd) values(#{name},#{age},#{pwd})"})
+    /*@Insert({"insert into user(name,age,pwd) values(#{name},#{age},#{pwd})"})
     void install(User user);
 
     @Update({"update user set name=#{name} where id=#{id}"})

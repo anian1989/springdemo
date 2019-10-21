@@ -91,4 +91,9 @@ public class DBRepositoryApplicationTests extends BaseTest{
 
 	}
 
+	@Test
+	public void dynamicTest(){
+
+	}
+
 }
