@@ -7,6 +7,7 @@
         <module>dbrepository</module>
         <module>spring</module>
         <module>thirdparty</module>
+        <module>pattern</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
