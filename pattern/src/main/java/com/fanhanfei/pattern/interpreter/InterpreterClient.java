@@ -73,12 +73,12 @@ class Calculator {
      */
     public Calculator(String expStr) {
         // 定义一个堆栈，安排运算的先后顺序
-        LinkedList<Expression> stack = new LinkedList<Expression>();
+        LinkedList<Expression> stack = new LinkedList<>();
         // 表达式拆分为字符数组
         char[] charArray = expStr.toCharArray();
         // 运算
-        Expression left = null;
-        Expression right = null;
+        Expression left ;
+        Expression right ;
         for (int i = 0; i < charArray.length; i++) {
             switch (charArray[i]) {
                 // 加法
@@ -101,14 +101,22 @@ class Calculator {
         this.expression = stack.pop();
     }
 
-    // 开始运算
+    /**
+     * 开始运算
+     * @param args
+     * @return
+     */
     public int run(HashMap<String, Integer> args) {
         return this.expression.interpreter(args);
     }
 }
 
 public class InterpreterClient {
-    // 运行四则运算
+    /**
+     * 运行四则运算
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         String expStr = getExpStr();
         // 赋值
@@ -117,14 +125,23 @@ public class InterpreterClient {
         System.out.println("运算结果为：" + expStr + "=" + cal.run(var));
     }
 
-    // 获得表达式
+    /**
+     * 获得表达式
+     * @return
+     * @throws IOException
+     */
     public static String getExpStr() throws IOException {
         System.out.print("请输入表达式：");
         return (new BufferedReader(new InputStreamReader(System.in)))
                 .readLine();
     }
 
-    // 获得值映射
+    /**
+     * 获得值映射
+     * @param exprStr
+     * @return
+     * @throws IOException
+     */
     public static HashMap<String, Integer> getValue(String exprStr)
             throws IOException {
         HashMap<String, Integer> map = new HashMap<>(8);
