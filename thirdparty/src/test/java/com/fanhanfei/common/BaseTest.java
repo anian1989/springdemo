@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @date 2019/11/1
  * @description
  **/
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 @SpringBootTest(classes = { ThirdPartyApplication.class })
 public class BaseTest {
 }
