@@ -50,7 +50,16 @@ public class HandleCommon {
         for (Object t : list) {
             System.out.println(t.toString());
         }
+    }
 
+    public static  void exchange(List list,int i,int j){
+        if (CollectionUtils.isEmpty(list)
+                ||i == j){
+            return;
+        }
+        Object comparable = list.get(i);
+        list.set(i,list.get(j));
+        list.set(j,comparable);
     }
 
 

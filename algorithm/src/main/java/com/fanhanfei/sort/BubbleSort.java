@@ -2,6 +2,8 @@ package com.fanhanfei.sort;
 
 import com.fanhanfei.common.HandleCommon;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 import java.util.List;
 
@@ -10,30 +12,30 @@ import java.util.List;
  * @date 2019/12/31
  * @description 冒泡排序
  **/
-public class BubbleSort {
+public class BubbleSort extends AbstractBaseSort{
 
-    public static List<Integer> bubble(List<Integer> dataList){
-        if (CollectionUtils.isEmpty(dataList)) {
-            return null;
+    @Override
+    public List<? extends Comparable> sortImp(List<? extends Comparable> datalist) {
+        int size = datalist.size();
+        if (NumberUtils.INTEGER_ONE.equals(size)){
+            return datalist;
         }
-        HandleCommon.printList(dataList);
-        int size = dataList.size();
         for (int i = 0 ; i < size ; i++) {
+            //如果一次冒泡没有进行过交换说明已经有序了
+            Boolean exchangeFlag = Boolean.FALSE;
             for (int j = size-1; j >i ; j--) {
-                Integer integerLower = dataList.get(j);
-                Integer integerHigh = dataList.get(j - 1);
-                if (integerHigh > integerLower){
-                    dataList.set(j,integerHigh);
-                    dataList.set(j-1,integerLower);
+                Comparable comparableLowe = datalist.get(j);
+                Comparable comparableHigh = datalist.get(j - 1);
+                if (comparableLowe.compareTo(comparableHigh) < NumberUtils.INTEGER_ZERO){
+                    HandleCommon.exchange(datalist,j,j-1);
+                    exchangeFlag = Boolean.TRUE;
                 }
             }
+            if (BooleanUtils.isFalse(exchangeFlag)){
+                System.out.println("冒泡次数："+(i+1));
+                break;
+            }
         }
-        HandleCommon.printList(dataList);
-        return dataList;
-    }
-
-    public static void main(String[] args) {
-        List<Integer> rondomIntList = HandleCommon.getRondomIntList(0,20,10);
-        BubbleSort.bubble(rondomIntList);
+        return datalist;
     }
 }
