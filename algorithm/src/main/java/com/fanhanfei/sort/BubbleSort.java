@@ -12,10 +12,10 @@ import java.util.List;
  * @date 2019/12/31
  * @description 冒泡排序
  **/
-public class BubbleSort extends AbstractBaseSort{
+public class BubbleSort<E extends Comparable> extends AbstractBaseSort<E>{
 
     @Override
-    public List<? extends Comparable> sortImp(List<? extends Comparable> datalist) {
+    public List<E> sortImp(List<E> datalist) {
         int size = datalist.size();
         if (NumberUtils.INTEGER_ONE.equals(size)){
             return datalist;
@@ -38,4 +38,5 @@ public class BubbleSort extends AbstractBaseSort{
         }
         return datalist;
     }
+
 }

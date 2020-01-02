@@ -25,6 +25,31 @@ public class HandleCommon {
         return RandomUtils.nextInt(start, end);
     }
 
+    /**
+     * 若end-start<size 则会启用默认start和end
+     * @param start
+     * @param end
+     * @param size
+     * @return
+     */
+    public static List<Integer> getRondomIntListNoRepeat(Integer start,Integer end,Integer size){
+        ArrayList<Integer> results = Lists.newArrayListWithCapacity(size);
+        if ((end - start)<size){
+            start = RONDOM_DEFAULT_START;
+            end = RONDOM_DEFAULT_END;
+        }
+        for (int i =0;i<size;i++) {
+            Integer rondomInt ;
+            while (true){
+                rondomInt = getRondomInt(start, end);
+                if (!results.contains(rondomInt)) {
+                    break;
+                }
+            }
+            results.add(rondomInt);
+        }
+        return results;
+    }
     public static List<Integer> getRondomIntList(Integer start,Integer end,Integer size){
         ArrayList<Integer> results = Lists.newArrayListWithCapacity(size);
         for (int i =0;i<size;i++) {

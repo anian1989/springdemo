@@ -11,9 +11,9 @@ import java.util.List;
  * @date 2019/12/31
  * @description
  **/
-public class SelectionSort extends AbstractBaseSort{
+public class SelectionSort<T extends Comparable> extends AbstractBaseSort<T>{
     @Override
-    public List<? extends Comparable> sortImp(List<? extends Comparable> datalist) {
+    public List<T> sortImp(List<T> datalist) {
         int size = datalist.size();
         for (int i = 0; i < size; i++) {
             int minIndex = i;
