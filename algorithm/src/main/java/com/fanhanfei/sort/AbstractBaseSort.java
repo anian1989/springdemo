@@ -20,9 +20,9 @@ public  abstract class AbstractBaseSort<E  extends Comparable> implements BaseSo
             System.out.println("入参为空");
             return null;
         }
-        HandleCommon.printList(datalist);
-        List<E> comparables = sortImp(datalist);
-        HandleCommon.printList(comparables);
+        HandleCommon.printList(sortName(),datalist);
+        List<E> comparAbles = sortImp(datalist);
+        HandleCommon.printList(sortName(),comparAbles);
         return datalist;
     }
 }

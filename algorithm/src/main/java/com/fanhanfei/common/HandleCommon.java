@@ -66,12 +66,12 @@ public class HandleCommon {
         return getRondomIntList(RONDOM_DEFAULT_START,RONDOM_DEFAULT_END,size);
     }
 
-    public static void  printList(List<?> list){
+    public static void  printList(String disName,List<?> list){
         if (CollectionUtils.isEmpty(list)) {
             System.out.println("打印信息，入参为空");
             return;
         }
-        System.out.println("=========================打印信息=========================");
+        System.out.println("========================="+disName+"打印信息=========================");
         for (Object t : list) {
             System.out.println(t.toString());
         }

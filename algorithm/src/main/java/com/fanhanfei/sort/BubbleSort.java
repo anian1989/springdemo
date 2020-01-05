@@ -39,4 +39,13 @@ public class BubbleSort<E extends Comparable> extends AbstractBaseSort<E>{
         return datalist;
     }
 
+    /**
+     * 排序名称
+     *
+     * @return
+     */
+    @Override
+    public String sortName() {
+        return "冒泡排序";
+    }
 }

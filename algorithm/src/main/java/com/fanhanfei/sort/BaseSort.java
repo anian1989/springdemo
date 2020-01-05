@@ -13,4 +13,10 @@ public interface BaseSort<E> {
      * @return
      */
     List<E > sort(List<E> datalist);
+
+    /**
+     * 排序名称
+     * @return
+     */
+    String sortName();
 }

@@ -27,4 +27,13 @@ public class SelectionSort<T extends Comparable> extends AbstractBaseSort<T>{
         return datalist;
     }
 
+    /**
+     * 排序名称
+     *
+     * @return
+     */
+    @Override
+    public String sortName() {
+        return "选择排序";
+    }
 }

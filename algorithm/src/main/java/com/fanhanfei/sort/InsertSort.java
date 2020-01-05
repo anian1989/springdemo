@@ -41,5 +41,13 @@ public class InsertSort<E extends Comparable> extends AbstractBaseSort<E>{
         return datalist;
     }
 
-
+    /**
+     * 排序名称
+     *
+     * @return
+     */
+    @Override
+    public String sortName() {
+        return "插入排序";
+    }
 }
