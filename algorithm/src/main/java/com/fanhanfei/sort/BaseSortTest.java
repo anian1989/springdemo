@@ -12,15 +12,55 @@ import java.util.List;
  * @description
  **/
 public class BaseSortTest {
-    public static List<List<Integer>> failList= Lists.newArrayList();
+    public  List<List<Integer>> failList= Lists.newArrayList();
     public static void main(String[] args) {
-//        test(new BubbleSort());
-//        test(new SelectionSort());
-//        test(new InsertSort());
-        test(new ShellSort());
+        BaseSortTest baseSortTest = new BaseSortTest();
+//        baseSortTest.test(new BubbleSort());
+//        baseSortTest.test(new SelectionSort());
+//        baseSortTest.test(new InsertSort());
+//        baseSortTest.test(new ShellSort());
+        baseSortTest.test(new MergeSort());
     }
 
-    public static void checkResult(List<Integer> rondomIntList){
+    public  void testOne(BaseSort sort){
+
+        List<Integer> rondomIntList = Lists.newArrayList(11,4);
+        sort.sort(rondomIntList);
+        checkResult(rondomIntList);
+
+        printFail(sort);
+
+    }
+
+
+    public  void test(BaseSort sort){
+
+        int sizeMax = 10;
+        int end = sizeMax <<1;
+        for (int i=2;i<sizeMax;i++){
+            test(sort,0,end,i);
+        }
+
+        printFail(sort);
+
+    }
+
+    public  void printFail(BaseSort sort){
+        System.out.println("失败是");
+        if (CollectionUtils.isNotEmpty(failList)) {
+            for (List<Integer> integers : failList) {
+
+                HandleCommon.printList(sort.sortName(),integers);
+            }
+        }
+    }
+
+    public  void test(BaseSort sort,Integer start,Integer end,Integer size){
+        List<Integer> rondomIntList = HandleCommon.getRondomIntListNoRepeat(start, end, size);
+        sort.sort(rondomIntList);
+        checkResult(rondomIntList);
+    }
+    public  void checkResult(List<Integer> rondomIntList){
         System.out.println("******************************************");
         if (CollectionUtils.isNotEmpty(rondomIntList)) {
             Boolean flag = true;
@@ -39,32 +79,5 @@ public class BaseSortTest {
         }else {
             System.out.println("list is empty");
         }
-    }
-    public static void test(BaseSort sort){
-
-        int sizeMax = 10;
-        int end = sizeMax <<1;
-        for (int i=2;i<sizeMax;i++){
-            test(sort,0,end,i);
-        }
-
-        printFail(sort);
-
-    }
-
-    public static void printFail(BaseSort sort){
-        System.out.println("失败是");
-        if (CollectionUtils.isNotEmpty(failList)) {
-            for (List<Integer> integers : failList) {
-
-                HandleCommon.printList(sort.sortName(),integers);
-            }
-        }
-    }
-
-    public static void test(BaseSort sort,Integer start,Integer end,Integer size){
-        List<Integer> rondomIntList = HandleCommon.getRondomIntListNoRepeat(start, end, size);
-        sort.sort(rondomIntList);
-        checkResult(rondomIntList);
     }
 }
