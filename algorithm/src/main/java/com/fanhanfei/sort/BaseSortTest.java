@@ -19,14 +19,16 @@ public class BaseSortTest {
 //        baseSortTest.test(new SelectionSort());
 //        baseSortTest.test(new InsertSort());
 //        baseSortTest.test(new ShellSort());
-        baseSortTest.test(new MergeSort());
+//        baseSortTest.test(new MergeSort());
+//        baseSortTest.test(new QuicklySort());
+        baseSortTest.test(new BucketSort());
     }
 
     public  void testOne(BaseSort sort){
 
-        List<Integer> rondomIntList = Lists.newArrayList(11,4);
-        sort.sort(rondomIntList);
-        checkResult(rondomIntList);
+        List<Integer> rondomIntList = Lists.newArrayList(12,9,15);
+        List sortResultList = sort.sort(rondomIntList);
+        checkResult(sortResultList);
 
         printFail(sort);
 
@@ -46,10 +48,9 @@ public class BaseSortTest {
     }
 
     public  void printFail(BaseSort sort){
-        System.out.println("失败是");
         if (CollectionUtils.isNotEmpty(failList)) {
+            System.out.println("失败是");
             for (List<Integer> integers : failList) {
-
                 HandleCommon.printList(sort.sortName(),integers);
             }
         }
@@ -57,8 +58,8 @@ public class BaseSortTest {
 
     public  void test(BaseSort sort,Integer start,Integer end,Integer size){
         List<Integer> rondomIntList = HandleCommon.getRondomIntListNoRepeat(start, end, size);
-        sort.sort(rondomIntList);
-        checkResult(rondomIntList);
+        List sortResult = sort.sort(rondomIntList);
+        checkResult(sortResult);
     }
     public  void checkResult(List<Integer> rondomIntList){
         System.out.println("******************************************");

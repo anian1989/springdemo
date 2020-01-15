@@ -73,8 +73,9 @@ public class HandleCommon {
         }
         System.out.println("========================="+disName+"打印信息=========================");
         for (Object t : list) {
-            System.out.println(t.toString());
+            System.out.print(t.toString()+",");
         }
+        System.out.println();
     }
 
     public static  void exchange(List list,int i,int j){

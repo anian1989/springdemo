@@ -188,10 +188,10 @@ public class SkuStockTest {
      */
     @Test
     public void transfer(){
-        log.info("开始测试");
+        log.info("*********************开始调拨********************");
         String url="https://erp.gotokeep.com/sku/channel/flip";
         String path="/Users/zhangjunshuai/库存差异查询/良品/渠道调拨.csv";
-        int updateSkuStockPatternCode = 2;//调拨模式
+        int updateSkuStockPatternCode = 1;//调拨模式
         List<String> contentFromCsv = FileReadUtils.getContentFromCsv(path);
         if (CollectionUtils.isNotEmpty(contentFromCsv)) {
             ArrayList<String> successList = Lists.newArrayList();
@@ -214,20 +214,22 @@ public class SkuStockTest {
                     try {
                         s = HttpClient.sendPost(url,postParam);
                         log.info("调用接口的结果是:{}",s);
+
+                    //{"object":true,"errorCode":0,"message":null,"success":true}
+                        Map map = JSONObject.parseObject(s, Map.class);
+                        Boolean status = (Boolean)map.get("object");
+                        map.put("skuId",split[0]);
+                        map.put("physicalWareId",split[3]);
+                        String string = JSONObject.toJSONString(map);
+                        log.info("调用接口的结果是:{}",string);
+                        if (status){
+                            successList.add(string);
+                        }else {
+                            failList.add(string);
+                        }
                     } catch (Exception e) {
                         log.error("调用接口异常",e);
-                    }
-                    //{"object":true,"errorCode":0,"message":null,"success":true}
-                    Map map = JSONObject.parseObject(s, Map.class);
-                    Boolean status = (Boolean)map.get("object");
-                    map.put("skuId",split[0]);
-                    map.put("physicalWareId",split[3]);
-                    String string = JSONObject.toJSONString(map);
-                    log.info("调用接口的结果是:{}",string);
-                    if (status){
-                        successList.add(string);
-                    }else {
-                        failList.add(string);
+                        failList.add(line);
                     }
 
                 }

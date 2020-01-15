@@ -21,8 +21,11 @@ public  abstract class AbstractBaseSort<E  extends Comparable> implements BaseSo
             return null;
         }
         HandleCommon.printList(sortName(),datalist);
+        if (datalist.size() == 1){
+            return datalist;
+        }
         List<E> comparAbles = sortImp(datalist);
         HandleCommon.printList(sortName(),comparAbles);
-        return datalist;
+        return comparAbles;
     }
 }
