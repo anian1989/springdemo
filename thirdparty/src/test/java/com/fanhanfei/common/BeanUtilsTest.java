@@ -3,11 +3,9 @@ package com.fanhanfei.common;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
-
-import static org.junit.Assert.*;
 @Slf4j
 public class BeanUtilsTest {
 

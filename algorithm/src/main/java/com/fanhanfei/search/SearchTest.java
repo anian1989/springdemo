@@ -19,11 +19,12 @@ public class SearchTest {
         BaseSearch baseSearch = new BinarySearch();
         Integer search = baseSearch.search(sortResult, 0);
         System.out.println("结果："+search);
-        try {
-            Thread.sleep(1000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
+
+        List<Integer> rondomIntList1 = HandleCommon.getRondomIntList(0, 10, 15);
+        List<Integer> sort = integerQuicklySort.sort(rondomIntList1);
+        HandleCommon.printList("排序好的",sort);
+        Integer integer = ((BinarySearch)baseSearch).searchFirst(sort, 5);
+        System.out.println("结果："+integer);
     }
 }

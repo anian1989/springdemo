@@ -45,4 +45,82 @@ public class BinarySearch implements BaseSearch{
 
         return -1;
     }
+
+    /**
+     * 在有重复数据的有序队列里面找到第一个指定值
+     * @param sortList
+     * @param target
+     * @return
+     */
+    public Integer searchFirst(List<Integer> sortList,Integer target){
+        int low =0;
+        int hight= sortList.size()-1;
+        while (hight>=low){
+            int middle = low+((hight-low)>>1);
+            if (sortList.get(middle)>target){
+                hight = middle-1;
+            }else if (sortList.get(middle)<target){
+                low=middle+1;
+            }else {
+                if (low == 0 || !sortList.get(middle-1).equals(target)){
+                    return middle;
+
+                }else {
+                    hight=middle-1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 在有重复数据的有序队列里面找到最后一个指定值
+     * @param sortList
+     * @param target
+     * @return
+     */
+    public Integer searchLast(List<Integer> sortList,Integer target){
+        int low =0;
+        int high = sortList.size()-1;
+        while (low<=high){
+            int mid = low+((high-low)>>1);
+            if (sortList.get(mid)>target){
+                high=mid-1;
+            }else if (sortList.get(mid)<target){
+                low = mid + 1;
+            }else {
+                if (mid == sortList.size()-1 || sortList.get(mid+1)>target){
+                    return mid;
+                }else {
+                    low = mid + 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找第一个大于等于给定值的元素
+     * @param sortList
+     * @param target
+     * @return
+     */
+    public Integer searchGreaterOrEqualFirst(List<Integer> sortList,Integer target){
+        int low = 0;
+        int high = sortList.size()-1;
+        while (low<=high){
+            int mid = low +((high-low)>>1);
+            if (sortList.get(mid)>= target){
+                if (mid == 0 || sortList.get(mid-1)< target){
+                    return target;
+                }else {
+                    high = mid -1;
+                }
+            }else {
+                low = mid +1;
+            }
+        }
+        return -1;
+
+    }
 }

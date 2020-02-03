@@ -1,15 +1,15 @@
 package com.fanhanfei.common;
 
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
  * @author zhangjunshuai
  * @date 2019/11/1
  * @description
  **/
-//@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = { ThirdPartyApplication.class })
 public class BaseTest {
 }
