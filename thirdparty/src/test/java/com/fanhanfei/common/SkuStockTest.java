@@ -39,7 +39,7 @@ public class SkuStockTest {
     @Test
     public void changeDefective(){
         log.info("开始测试");
-        String url="https://erp.gotokeep.com/skuSales/changeDefectiveStock";
+        String url="https://erp.gotozhangsanlisi.com/skuSales/changeDefectiveStock";
         String basePath="/Users/zhangjunshuai/库存差异查询/残品/";
         String readName ="残品天猫1.csv";
         String path=basePath+readName;
@@ -112,7 +112,7 @@ public class SkuStockTest {
     @Test
     public void changeKeepStock(){
         log.info("开始测试");
-        String url="https://erp.gotokeep.com/skuSales/changeKeepStock";
+        String url="https://erp.gotozhangsanlisi.com/skuSales/changeKeepStock";
         String path="/Users/zhangjunshuai/库存差异查询/良品/11月北京差异1.csv";
         Integer changeType =0;//1 实际 2 虚拟 0全部
         List<String> contentFromCsv = FileReadUtils.getContentFromCsv(path);
@@ -189,7 +189,7 @@ public class SkuStockTest {
     @Test
     public void transfer(){
         log.info("*********************开始调拨********************");
-        String url="https://erp.gotokeep.com/sku/channel/flip";
+        String url="https://erp.gotozhangsanlisi.com/sku/channel/flip";
         String path="/Users/zhangjunshuai/库存差异查询/良品/渠道调拨.csv";
         int updateSkuStockPatternCode = 1;//调拨模式
         List<String> contentFromCsv = FileReadUtils.getContentFromCsv(path);

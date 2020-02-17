@@ -148,7 +148,7 @@ public class WmsTest extends BaseTest{
     @DisplayName("测试转仓")
     @Test
     public void testChangeWarehouse(){
-        String url = "";
+        String url = "https://store.gotozhangsanlisi.com/api/internal/v1.0/wmsLogisticsOrder/submit";
         String[] split = logisticsOrderNo.replaceAll("\n", "").split(",");
 
         ArrayList<String> list = Lists.newArrayList(split);

@@ -10,6 +10,7 @@
         <module>pattern</module>
         <module>algorithm</module>
         <module>java-basic</module>
+        <module>validator</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

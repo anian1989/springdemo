@@ -39,7 +39,7 @@ public class KafkaLogisticsTest extends BaseTest {
         log.info("开始");
         StringBuilder stringBuilder = new StringBuilder();
         ArrayList<String> objects = Lists.newArrayList();
-        String url = "https://kafka.sre.gotokeep.com/clusters/mo-kafka/topics/mo_wms_logistics_order_status_change/sendMessage";
+        String url = "https://kafka.sre.gotozhangsanlisi.com/clusters/mo-kafka/topics/mo_wms_logistics_order_status_change/sendMessage";
         try {
             List<String> contentFromCsv = FileReadUtils.getContentFromCsv("/Users/zhangjunshuai/kafka/offset.txt");
             contentFromCsv.forEach(kk -> {
@@ -73,7 +73,7 @@ public class KafkaLogisticsTest extends BaseTest {
         StringBuilder stringBuilder = new StringBuilder();
         ArrayList<String> objects = Lists.newArrayList();
         //取消发货单
-        String url = "https://kafka.sre.gotokeep.com/clusters/mo-kafka/topics/mo_wms_logistics_order_operate/sendMessage";
+        String url = "https://kafka.sre.gotozhangsanlisi.com/clusters/mo-kafka/topics/mo_wms_logistics_order_operate/sendMessage";
         try {
             List<String> contentFromCsv = FileReadUtils.getContentFromCsv("/Users/zhangjunshuai/kafka/offsetcancle.txt");
             contentFromCsv.forEach(kk -> {
@@ -102,7 +102,7 @@ public class KafkaLogisticsTest extends BaseTest {
         StringBuilder stringBuilder = new StringBuilder();
         ArrayList<String> objects = Lists.newArrayList();
         //取消发货单
-        String url = "https://kafka.sre.gotokeep.com/clusters/mo-kafka/topics/mo_wms_out_bound_order_callback_operation/sendMessage";
+        String url = "https://kafka.sre.gotozhangsanlisi.com/clusters/mo-kafka/topics/mo_wms_out_bound_order_callback_operation/sendMessage";
         try {
             List<String> contentFromCsv = FileReadUtils.getContentFromCsv("/Users/zhangjunshuai/kafka/logisticsmsg.txt");
             contentFromCsv.forEach(kk -> {
