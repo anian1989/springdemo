@@ -27,3 +27,4 @@
 ### VS Code ###
 .vscode/
 /pattern/target/
+/fhf-common/target/
