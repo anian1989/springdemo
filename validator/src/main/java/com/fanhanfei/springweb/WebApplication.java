@@ -1,6 +1,5 @@
 package com.fanhanfei.springweb;
 
-import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration;
@@ -23,9 +22,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
         RabbitAutoConfiguration.class})
 
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-@EnableApolloConfig
 //@MapperScan(basePackages = {"","", "", ""})
-
 public class WebApplication {
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(WebApplication.class);

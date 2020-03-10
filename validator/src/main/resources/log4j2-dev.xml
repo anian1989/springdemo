@@ -47,10 +47,11 @@
         <logger name="log4j.logger.org.mybatis.example.BlogMapper" level="INFO"/>
         <logger name="com.ctrip.framework.apollo" level="WARN"/>
 
-        <Asyncroot level="INFO" includeLocation="true">
+        <Asyncroot level="DEBUG" includeLocation="true">
             <appender-ref ref="Console"/>
             <appender-ref ref="ErrorFile"/>
             <appender-ref ref="AppFile"/>
         </Asyncroot>
+        <appender-ref ref="Console"/>
     </loggers>
 </configuration>

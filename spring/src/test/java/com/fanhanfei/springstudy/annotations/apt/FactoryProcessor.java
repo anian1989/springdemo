@@ -26,7 +26,7 @@ import java.util.Set;
  * Types：一个用来处理TypeMirror的工具类；
  * Filer：正如这个名字所示，使用Filer你可以创建文件。
  **/
-@AutoService(Process.class)
+//@AutoService(Process.class)
 public class FactoryProcessor extends AbstractProcessor {
     private Types typeUtils;
     private Elements elementUtils;
