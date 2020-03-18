@@ -122,6 +122,21 @@ public class TempTest {
 
     }
 
+    @Test
+    @DisplayName("去重")
+    public void distinct(){
+        String str ="";
+
+        String[] split = str.split("\n");
+        ArrayList<String> list = Lists.newArrayList(split);
+        List<String> collect = list.stream().distinct().collect(Collectors.toList());
+        for (String s : collect) {
+            System.out.println(s+",");
+        }
+
+
+    }
+
 
 }
 
