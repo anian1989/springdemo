@@ -63,10 +63,10 @@
         <logger name="org.apache" level="WARN"/>
         <logger name="kafka" level="WARN"/>
 
-        <Asyncroot level="DEBUG" includeLocation="true">
+        <Root level="DEBUG" includeLocation="true">
             <appender-ref ref="Console"/>
-            <appender-ref ref="RollingFileError"/>
-            <appender-ref ref="RollingFileInfo"/>
-        </Asyncroot>
+            <!--<appender-ref ref="RollingFileError"/>-->
+            <!--<appender-ref ref="RollingFileInfo"/>-->
+        </Root>
     </loggers>
 </configuration>

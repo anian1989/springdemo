@@ -1,4 +1,4 @@
-package com.fanhanfei.pattern.jike.factory.simple;
+package com.fanhanfei.pattern.jike.factory;
 /**
  * 工厂模式
 1、简单工厂 simple factory

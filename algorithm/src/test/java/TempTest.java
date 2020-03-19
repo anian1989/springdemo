@@ -1,3 +1,4 @@
+import com.alibaba.fastjson.JSONObject;
 import com.fanhanfei.common.collections.StringListUtils;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
