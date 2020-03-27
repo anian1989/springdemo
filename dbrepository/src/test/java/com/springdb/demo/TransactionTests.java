@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import javax.annotation.Resource;
+import java.sql.*;
 
 /**
  * @author zhangjunshuai
@@ -33,4 +34,7 @@ public class TransactionTests extends BaseTest {
         log.info("写库："+ds);
         log.info("读库："+s);
     }
+
+
+
 }
