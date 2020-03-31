@@ -29,7 +29,7 @@ public class WmsTest extends BaseTest{
     @BeforeAll
     static void before(){
         log.info("开始执行");
-        warehouseId = 44;
+        warehouseId = -1;
         logisticsOrderNo="SANMA205330734960156672";
     }
     @DisplayName("测试转仓")
