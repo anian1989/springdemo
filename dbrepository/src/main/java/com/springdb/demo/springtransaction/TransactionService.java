@@ -8,6 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @description
  **/
 public interface TransactionService {
-    @Transactional(rollbackFor = Exception.class)
+//    @Transactional(rollbackFor = Exception.class)
     void onServiceMethod();
 }
