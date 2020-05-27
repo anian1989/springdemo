@@ -7,8 +7,6 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
@@ -23,27 +21,30 @@ public class MyFactoryBean implements FactoryBean<Object>, InitializingBean, Dis
     private String interfaceName;
     private Object target;
     private Object proxyObj;
+
     @Override
     public void destroy() throws Exception {
-        logger.debug("destroy......");
+        System.out.println("destroy......");
     }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         proxyObj = Proxy.newProxyInstance(
                 this.getClass().getClassLoader(),
-                new Class[] { Class.forName(interfaceName) },
+                new Class[]{Class.forName(interfaceName)},
                 (proxy, method, args) -> {
-                    logger.debug("invoke method......" + method.getName());
-                    logger.debug("invoke method before......" + System.currentTimeMillis());
+                    System.out.println("invoke method......" + method.getName());
+                    System.out.println("invoke method before......" + System.currentTimeMillis());
                     Object result = method.invoke(target, args);
-                    logger.debug("invoke method after......" + System.currentTimeMillis());
-                    return result;            });
-        logger.debug("afterPropertiesSet......");
+                    System.out.println("invoke method after......" + System.currentTimeMillis());
+                    return result;
+                });
+        System.out.println("afterPropertiesSet......");
     }
 
     @Override
-    public Object getObject() throws Exception {
-        logger.debug("getObject......");
+    public Object getObject() {
+        System.out.println("getObject......");
         return proxyObj;
     }
 
@@ -56,7 +57,6 @@ public class MyFactoryBean implements FactoryBean<Object>, InitializingBean, Dis
     public boolean isSingleton() {
         return true;
     }
-
 
 
 }
