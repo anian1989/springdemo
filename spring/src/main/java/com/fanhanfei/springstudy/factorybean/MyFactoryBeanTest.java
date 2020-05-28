@@ -3,6 +3,7 @@ package com.fanhanfei.springstudy.factorybean;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.PropertiesBeanDefinitionReader;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.EncodedResource;
 
@@ -20,15 +21,18 @@ public class MyFactoryBeanTest {
      * 使用Proxy.newInstance生成service的代理类
      */
     public static void main(String[] args) {
-        DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
+//        官方建议使用 GenericApplicationContext
+        GenericApplicationContext context = new GenericApplicationContext();
+//        DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
         // # 实例化基于 Properties 资源 BeanDefinitionReader
-        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(defaultListableBeanFactory);
+        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(context);
         String[] locations={"hello-beans.xml"};
         int i = xmlBeanDefinitionReader.loadBeanDefinitions(locations);
+        context.refresh();// DefaultListableBeanFactory 的时候不用refresh
 
         System.out.println("已加载 BeanDefinition 数量："+i);
 
-        HelloWorldService helloWorldService = (HelloWorldService)defaultListableBeanFactory.getBean("fbHelloWorldService");
+        HelloWorldService helloWorldService = (HelloWorldService)context.getBean("fbHelloWorldService");
         helloWorldService.getBeanName();
         helloWorldService.sayHello();
 
