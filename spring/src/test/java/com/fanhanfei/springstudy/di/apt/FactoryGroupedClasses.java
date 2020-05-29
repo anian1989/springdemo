@@ -1,4 +1,4 @@
-package com.fanhanfei.springstudy.annotations.apt;
+package com.fanhanfei.springstudy.di.apt;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;

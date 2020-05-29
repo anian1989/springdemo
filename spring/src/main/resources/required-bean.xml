@@ -10,7 +10,7 @@
     <context:annotation-config/>
 
     <!-- Definition for student bean -->
-    <bean id="student" class="com.fanhanfei.springstudy.annotations.required.Student">
+    <bean id="student" class="com.fanhanfei.springstudy.springAnnotations.required.Student">
          <property name="age"  value="11"/>
     </bean>
 

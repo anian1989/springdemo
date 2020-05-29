@@ -1,4 +1,4 @@
-package com.fanhanfei.springstudy.annotations.apt;
+package com.fanhanfei.springstudy.di.apt;
 
 /**
  * @author zhangjunshuai
@@ -6,12 +6,12 @@ package com.fanhanfei.springstudy.annotations.apt;
  * @description
  **/
 @Factory(
-        id = "Tiramisu",
+        id = "Calzone",
         type = Meal.class
 )
-public class Tiramisu implements Meal {
+public class CalzonePizza implements Meal {
     @Override
     public float getPrice() {
-        return 4.5f;
+        return 8.5f;
     }
 }

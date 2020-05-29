@@ -1,4 +1,4 @@
-package com.fanhanfei.springstudy.annotations;
+package com.fanhanfei.springstudy.di;
 
 import java.lang.reflect.Field;
 

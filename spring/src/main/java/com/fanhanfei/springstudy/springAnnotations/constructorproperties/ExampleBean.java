@@ -1,4 +1,4 @@
-package com.fanhanfei.springstudy.annotations.constructorproperties;
+package com.fanhanfei.springstudy.springAnnotations.constructorproperties;
 
 import lombok.ToString;
 

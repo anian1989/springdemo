@@ -1,4 +1,4 @@
-package com.fanhanfei.springstudy.annotations.required;
+package com.fanhanfei.springstudy.springAnnotations.required;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

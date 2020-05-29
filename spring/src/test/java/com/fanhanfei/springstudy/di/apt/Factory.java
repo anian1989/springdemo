@@ -1,4 +1,4 @@
-package com.fanhanfei.springstudy.annotations.apt;
+package com.fanhanfei.springstudy.di.apt;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

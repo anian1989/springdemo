@@ -1,4 +1,4 @@
-package com.fanhanfei.springstudy.annotations.constructorproperties;
+package com.fanhanfei.springstudy.springAnnotations.constructorproperties;
 
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;

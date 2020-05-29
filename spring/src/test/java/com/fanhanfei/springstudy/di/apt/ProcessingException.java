@@ -1,4 +1,4 @@
-package com.fanhanfei.springstudy.annotations.apt;
+package com.fanhanfei.springstudy.di.apt;
 
 import javax.lang.model.element.Element;
 

@@ -1,6 +1,4 @@
-package com.fanhanfei.springstudy.annotations.apt;
-
-import com.google.auto.service.AutoService;
+package com.fanhanfei.springstudy.di.apt;
 
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
