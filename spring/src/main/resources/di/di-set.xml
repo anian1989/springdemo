@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+
+    <bean id="exampleBean" class="com.fanhanfei.springstudy.di.circular.ExampleBean">
+        <!-- setter injection using the nested ref element -->
+        <property name="beanOne">
+            <ref bean="anotherExampleBean"/>
+        </property>
+
+        <!-- setter injection using the neater ref attribute -->
+        <property name="beanTwo" ref="yetAnotherBean"/>
+        <property name="integerProperty" value="1"/>
+    </bean>
+
+    <bean id="anotherExampleBean" class="com.fanhanfei.springstudy.di.circular.AnotherBean"/>
+    <bean id="yetAnotherBean" class="com.fanhanfei.springstudy.di.circular.YetAnotherBean"/>
+
+
+</beans>
