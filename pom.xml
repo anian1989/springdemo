@@ -13,6 +13,7 @@
         <module>validator</module>
         <module>fhf-common</module>
         <module>java-multithreading</module>
+        <module>spring-test</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
